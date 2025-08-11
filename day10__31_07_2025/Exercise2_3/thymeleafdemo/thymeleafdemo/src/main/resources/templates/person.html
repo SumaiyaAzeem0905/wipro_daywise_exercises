@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Person View</title>
+    <meta charset="UTF-8" />
+</head>
+<body>
+    <h1>Person Details</h1>
+    <p><strong>First name:</strong> <span th:text="${person.firstName}">FirstName</span></p>
+    <p><strong>Is adult:</strong> <span th:text="${person.adult}">true/false</span></p>
+    <p><strong>Salary:</strong> ₹ <span th:text="${person.salary}">0.0</span></p>
+
+    <h2>Bank Accounts</h2>
+    <ul>
+        <li th:each="acc : ${person.bankAccounts}">
+            <span th:text="${acc.bankName}">Bank</span> - <span th:text="${acc.accountNumber}">Acct</span>
+        </li>
+    </ul>
+</body>
+</html>
