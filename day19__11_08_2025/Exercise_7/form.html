@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Form</title>
+</head>
+<body>
+    <h2 align="center">Student Registration Form</h2>
+
+    <form>
+        <div>
+            Roll no. :
+            <input type="text" name="rollno">
+        </div>
+        <br>
+        <div>
+            Student name :
+            <input type="text" name="firstname" placeholder="First Name">
+            <input type="text" name="lastname" placeholder="Last Name">
+        </div>
+        <br>
+        <div>
+            Father's name :
+            <input type="text" name="fathername">
+        </div>
+        <br>
+        <div>
+            Date of birth :
+            <input type="number" name="day" placeholder="Day" min="1" max="31">
+            <input type="number" name="month" placeholder="Month" min="1" max="12">
+            <input type="number" name="year" placeholder="Year" min="1900" max="2025">
+            (DD-MM-YYYY)
+        </div>
+        <br>
+        <div>
+            Mobile no. : +91
+            <input type="number" name="mobile">
+        </div>
+        <br>
+        <div>
+            Email id :
+            <input type="email" name="email">
+        </div>
+        <br>
+        <div>
+            Password :
+            <input type="password" name="password">
+        </div>
+        <br>
+        <div>
+            Gender :
+            <input type="radio" name="gender" value="male"> Male
+            <input type="radio" name="gender" value="female"> Female
+        </div>
+        <br>
+        <div>
+            Department :
+            <input type="checkbox" name="dept" value="CSE"> CSE
+            <input type="checkbox" name="dept" value="IT"> IT
+            <input type="checkbox" name="dept" value="ECE"> ECE
+            <input type="checkbox" name="dept" value="Civil"> Civil
+            <input type="checkbox" name="dept" value="Mech"> Mech
+        </div>
+        <br>
+        <div>
+            Course :
+            <select>
+                <option>Select Current Course's</option>
+                <option>B.Tech</option>
+                <option>M.Tech</option>
+                <option>B.Sc</option>
+                <option>M.Sc</option>
+                <option>Diploma</option>
+            </select>
+        </div>
+        <br>
+        <div>
+            Student photo :
+            <input type="file" name="photo">
+        </div>
+        <br>
+        <div>
+            City :
+            <input type="text" name="city">
+        </div>
+        <br>
+        <div>
+            Address :
+            <textarea name="address" rows="4" cols="20"></textarea>
+        </div>
+        <br>
+        <div align="center">
+            <input type="submit" value="Register">
+        </div>
+    </form>
+</body>
+</html>
