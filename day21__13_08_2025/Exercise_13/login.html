@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Form</title>
+    <link rel="stylesheet" href="formstyle.css">
+    <script src="formlogic.js" defer></script>
+</head>
+<body>
+
+<div class="login-container">
+    <h2>Login</h2>
+    <form id="loginForm">
+        
+        <!-- Email -->
+        <label>Email:</label>
+        <input type="text" id="email" placeholder="Enter your email" onblur="validateEmail()">
+        <span class="error" id="emailError"></span>
+
+        <!-- Password -->
+        <label>Password:</label>
+        <input type="password" id="password" placeholder="Enter your password" onblur="validatePassword()">
+        <span class="error" id="passwordError"></span>
+
+        <button type="button" onclick="validateForm()">Login</button>
+    </form>
+</div>
+
+</body>
+</html>

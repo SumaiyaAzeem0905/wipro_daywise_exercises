@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Var, Let, Const Scope</title>
+</head>
+<body>
+    <script>
+        // Global variable
+        var x = 4;
+        // Constant variable
+        const z = 9;
+        function f() {
+            x = 9; // modifies global var
+            let y = 8; // block-scoped variable
+
+            console.log("x in function is " + x); // 9
+            console.log("y in function is " + y); // 8
+
+            if (true) {
+                let z = 18; // block-scoped variable, different from global const z
+                console.log("y in if block is " + y); // 8
+                console.log("z in if block is " + z); // 18
+            }
+
+            console.log("z in function is " + z); // 9 (global const z)
+        }
+
+        f();
+
+        console.log("x outside function is " + x); // 9
+        // console.log("y outside function is " + y); // Error: y is block scoped
+        console.log("z outside function is " + z); // 9
+    </script>
+
+</body>
+</html>
