@@ -1,0 +1,11 @@
+let movie = {
+    movieName: "Inception",
+    movieLanguage: "English",
+    imdbRating: 8.8
+};
+
+let { movieName, movieLanguage, imdbRating } = movie;
+
+console.log("Movie Name:", movieName);
+console.log("Language:", movieLanguage);
+console.log("IMDB Rating:", imdbRating);
