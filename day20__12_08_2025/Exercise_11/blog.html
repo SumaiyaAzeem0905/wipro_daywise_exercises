@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Minimal Blog Post — Example</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg: #f8f9fb;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --primary: #1f6feb; 
+      --accent: #ffb703; 
+      --gap: 1.25rem;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding-bottom:40px;
+    }
+
+    a{color:var(--primary); text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    /* ---------- Layout container ---------- */
+    .site {
+      max-width:1100px;
+      margin:28px auto;
+      padding: 0 18px;
+    }
+
+    /* ---------- Header ---------- */
+    header.site-header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:var(--gap);
+      margin-bottom:18px;
+    }
+    .brand{
+      font-weight:700;
+      font-size:1.2rem;
+      letter-spacing:0.2px;
+    }
+    nav.main-nav ul{
+      display:flex;
+      gap:14px;
+      list-style:none;
+      margin:0;
+      padding:0;
+      align-items:center;
+    }
+    nav.main-nav a{
+      color:var(--text);
+      font-weight:600;
+      font-size:0.95rem;
+      padding:6px 8px;
+    }
+    nav.main-nav a:hover{color:var(--primary)}
+
+    /* ---------- Hero (section with background image) ---------- */
+    .hero{
+      background-image: url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=2d30f01e22f3a3e7d0a0c6f8f72f9acb');
+      background-size:cover;
+      background-position:center;
+      color:#fff;
+      border-radius:10px;
+      padding:48px 28px;
+      margin-bottom:20px;
+      position:relative;
+      overflow:hidden;
+      box-shadow: 0 6px 18px rgba(31,41,55,0.08);
+    }
+    .hero::after{
+      /* subtle overlay for contrast */
+      content:"";
+      position:absolute; inset:0;
+      background:linear-gradient(180deg, rgba(0,0,0,0.18), rgba(0,0,0,0.36));
+      z-index:0;
+    }
+    .hero-content{position:relative; z-index:1; max-width:780px}
+    .hero h1{
+      margin:0 0 8px 0;
+      font-size:2.1rem;
+      line-height:1.08;
+      font-weight:700;
+    }
+    .meta{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      color:rgba(255,255,255,0.9);
+      font-size:0.9rem;
+    }
+    .meta img{width:36px; height:36px; border-radius:50%; object-fit:cover; border:2px solid rgba(255,255,255,0.6)}
+
+    /* ---------- Grid: main + sidebar ---------- */
+    .content-grid{
+      display:grid;
+      grid-template-columns: 2fr 1fr; /* content : sidebar */
+      gap:var(--gap);
+      align-items:start;
+    }
+
+    /* Main article card */
+    article.post{
+      background:var(--card);
+      border-radius:10px;
+      padding:22px;
+      box-shadow: 0 6px 18px rgba(31,41,55,0.04);
+    }
+    article.post h2{font-size:1.3rem; margin-top:0}
+    article.post .intro{font-size:1.02rem; color:var(--muted); margin-bottom:14px}
+
+    .post-section{
+      margin:22px 0;
+      display:flex;
+      gap:16px;
+      align-items:flex-start;
+    }
+    .post-section img{
+      width:220px;
+      height:140px;
+      object-fit:cover;
+      border-radius:8px;
+      flex-shrink:0;
+      box-shadow: 0 4px 12px rgba(31,41,55,0.06);
+    }
+    .post-section .text p{margin:0 0 10px 0}
+
+    /* CTA */
+    .cta{
+      display:inline-block;
+      background:var(--primary);
+      color:#fff;
+      padding:12px 18px;
+      border-radius:8px;
+      font-weight:600;
+      transition:transform .14s ease, box-shadow .14s ease;
+      margin-top:8px;
+    }
+    .cta:hover{
+      transform:translateY(-3px);
+      box-shadow:0 8px 20px rgba(31,111,235,0.18);
+    }
+
+    /* ---------- Sidebar ---------- */
+    aside.sidebar{
+      position:relative;
+      top:0;
+    }
+    .card-side{
+      background:var(--card);
+      border-radius:10px;
+      padding:16px;
+      box-shadow: 0 6px 18px rgba(31,41,55,0.04);
+      margin-bottom:16px;
+    }
+    .author-photo{
+      width:80px; height:80px; border-radius:50%; object-fit:cover; margin-bottom:12px;
+      border:3px solid #fff;
+      box-shadow: 0 6px 18px rgba(31,41,55,0.06);
+    }
+    .author-name{font-weight:700; margin-bottom:6px}
+    .social-links a{margin-right:8px; color:var(--muted); font-size:1.1rem}
+    .recent-posts ul{list-style:none; padding:0; margin:8px 0 0 0}
+    .recent-posts li{padding:8px 0; border-bottom:1px solid #eef2f6}
+    .recent-posts a{font-weight:600; color:var(--text)}
+
+    /* ---------- Footer ---------- */
+    footer.site-footer{
+      margin-top:28px;
+      text-align:center;
+      color:var(--muted);
+      font-size:0.95rem;
+    }
+
+    /* ---------- Utilities ---------- */
+    .muted{color:var(--muted)}
+    .small{font-size:0.88rem}
+
+    /* ---------- Responsive ---------- */
+    @media (max-width:980px){
+      .content-grid{grid-template-columns:1fr; }
+      .post-section{flex-direction:column}
+      .post-section img{width:100%; height:200px}
+    }
+
+    @media (max-width:520px){
+      .hero{padding:28px 18px}
+      .hero h1{font-size:1.5rem}
+      .hero-content{max-width:100%}
+      .author-photo{width:64px; height:64px}
+      .card-side{padding:12px}
+      .site{ padding-left:12px; padding-right:12px }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="site">
+    <header class="site-header">
+      <div class="brand">MyBlogs</div>
+      <nav class="main-nav" aria-label="Primary">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Articles</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Hero with background image + title + meta -->
+    <section class="hero" role="region" aria-label="Hero">
+      <div class="hero-content">
+        <h1>10 Simple Tips to Boost Your Productivity</h1>
+        <p class="meta">By Jane Smith • August 12, 2025</p>
+        <div class="meta">
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&s=9a8f1b9d8a9ea6b8d9d3ef7f7f5f9d59" alt="Author photo">
+          <div>
+            <div style="font-weight:600">Sumaiya</div>
+            <div class="small muted">March 18, 2025 · 6 min read</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Content grid (main + sidebar) -->
+    <div class="content-grid" style="margin-top:18px">
+      <!-- Main article -->
+      <article class="post" aria-labelledby="post-title">
+        <h2 id="post-title">Introduction</h2>
+        <p class="intro">Life can feel busy and overwhelming, but small, mindful changes 
+    can make a big difference. In this post, I’m sharing my 
+    favorite habits that help me feel energized, focused, 
+    and more present every single day.</p>
+
+        <!-- Section 1 -->
+        <div class="post-section" role="region" aria-label="Section 1">
+          <img src="https://images.unsplash.com/photo-1508921912186-1d1a45ebb3c1?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=1b6f6c7a5f6a2c2d3f5b6c7e8d9f0a1a" alt="layout graphic">
+          <div class="text">
+            <h3>Start Your Morning Without Screens</h3>
+            <p>Instead of grabbing your phone the second you wake up, 
+    try spending the first 20 minutes doing something peaceful — 
+    stretching, journaling, or sipping your coffee in silence. 
+    It sets a calmer tone for the rest of the day.</p>
+          </div>
+        </div>
+
+        <!-- Section 2 -->
+        <div class="post-section" role="region" aria-label="Section 2">
+          <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=4dce5b6d9f7c9a8b1f2d3e4f5a6b7c8d" alt="typography">
+          <div class="text">
+            <h3>Take Short Movement Breaks</h3>
+            <p>Sitting all day isn’t great for your body or your mind. 
+    Set a timer to remind yourself to stand, stretch, or take a 
+    quick walk every hour. Even a two-minute break can 
+    boost your mood and productivity.</p>
+          </div>
+        </div>
+
+        <!-- Section 3 -->
+        <div class="post-section" role="region" aria-label="Section 3">
+          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=6f7e8c9d0a1b2c3d4e5f6a7b8c9d0e1f" alt="code">
+          <div class="text">
+            <h3>Make Time for Something You Love</h3>
+            <p>Whether it’s reading, cooking, painting, or playing music, 
+    doing something purely for joy every day helps keep life balanced. 
+    It doesn’t need to be a big chunk of time — even 10 minutes can help.</p>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div style="margin-top:6px">
+          <a class="cta" href="#">Subscribe for weekly design tips</a>
+        </div>
+      </article>
+
+      <!-- Sidebar -->
+      <aside class="sidebar" aria-label="Sidebar">
+        <!-- About Author -->
+        <div class="card-side" role="region" aria-labelledby="about-author">
+          <div style="text-align:center">
+            <img class="author-photo" src="https://images.unsplash.com/photo-1545996124-9b7a5f6b1c2a?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&s=0d5f7a6b8c9d4e3b2a1c5f6e" alt="Author">
+            <div class="author-name">Sumaiya</div>
+            <div class="small muted">UX Designer & Frontend Developer. I write about minimal UI, accessibility, and responsive techniques.</div>
+          </div>
+
+          <div style="margin-top:12px; display:flex; justify-content:center; gap:10px;" class="social-links" aria-label="Author social links">
+            <a href="#" title="Twitter" aria-label="Twitter">🐦</a>
+            <a href="#" title="Github" aria-label="Github">💻</a>
+            <a href="#" title="LinkedIn" aria-label="LinkedIn">🔗</a>
+          </div>
+        </div>
+
+        <!-- Recent posts -->
+        <div class="card-side recent-posts" role="region" aria-labelledby="recent-posts">
+          <h4 id="recent-posts" style="margin-top:0; margin-bottom:8px">Recent posts</h4>
+          <ul>
+            <li><a href="#">Minimal UI: 10 rules for clarity</a></li>
+            <li><a href="#">Responsive images: best practices</a></li>
+            <li><a href="#">Accessible forms: examples</a></li>
+            <li><a href="#">Typography scale for readable text</a></li>
+          </ul>
+        </div>
+
+        <!-- Small CTA card -->
+        <div class="card-side" role="region" aria-label="CTA">
+          <h5 style="margin:0 0 8px 0">Join the newsletter</h5>
+          <p class="small muted" style="margin:0 0 10px 0">Short design tips every week — free.</p>
+          <a class="cta" href="#" style="display:inline-block; width:100%; text-align:center">Join now</a>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="small muted">© 2025 MyMinimalBlog • Built with simple, accessible patterns • Follow us:
+        <a href="#" style="margin-left:6px">Twitter</a> • <a href="#">Instagram</a> • <a href="#">GitHub</a>
+      </div>
+    </footer>
+  </div>
+
+</body>
+</html>

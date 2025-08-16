@@ -1,0 +1,19 @@
+body {
+    background: linear-gradient(to right, #f5f5f5, #2575fc);
+}
+
+.login-card {
+    width: 350px;
+    border-radius: 15px;
+    background-color: white;
+}
+
+.forgot-password {
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+    color: #0056b3;
+}
