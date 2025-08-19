@@ -1,0 +1,9 @@
+<h2>Fruit List</h2>
+<div class="d-flex flex-wrap">
+  <app-ex5fruit
+    *ngFor="let f of fruits"
+    [name]="f.name"
+    [description]="f.description"
+    [image]="f.image">
+  </app-ex5fruit>
+</div>
