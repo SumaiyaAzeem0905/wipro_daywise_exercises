@@ -1,0 +1,22 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "Laptop",
+      "category": "Electronics",
+      "price": 1200
+    },
+    {
+      "id": "2",
+      "name": "Shirt",
+      "category": "Clothing",
+      "price": 1500
+    },
+    {
+      "id": "e606",
+      "name": "AC",
+      "category": "Electronics",
+      "price": 50000
+    }
+  ]
+}

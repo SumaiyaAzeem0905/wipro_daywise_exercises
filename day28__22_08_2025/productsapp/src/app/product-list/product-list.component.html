@@ -1,0 +1,27 @@
+<table border="1" cellpadding="6" cellspacing="0">
+  <thead>
+    <tr>
+      <th style="width:60px">ID</th>
+      <th style="width:240px">Name</th>
+      <th style="width:160px">Category</th>
+      <th style="width:120px">Price</th>
+      <th style="width:160px">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of products">
+      <td>{{ p.id }}</td>
+      <td>{{ p.name }}</td>
+      <td>{{ p.category }}</td>
+      <td>{{ p.price }}</td>
+      <td>
+        <button (click)="edit(p.id)">Edit</button>
+        <button (click)="delete(p.id)">Delete</button>
+      </td>
+    </tr>
+    <tr *ngIf="products.length === 0">
+      <td colspan="5">No products found.</td>
+    </tr>
+  </tbody>
+</table>
+
