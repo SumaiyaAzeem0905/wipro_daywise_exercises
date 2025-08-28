@@ -1,0 +1,12 @@
+<p>conditionalcomp works!</p>
+<div class="container mt-3">
+  <h3>Show / Hide Message Example</h3>
+
+ 
+    <input class="form-check-input" type="checkbox" [(ngModel)]="showMessage" />
+    <label class="form-check-label" for="toggleCheck">
+      Show Message
+    </label>
+  @if (showMessage) {
+    <p>Hello, this is the secret message!</p>
+  }

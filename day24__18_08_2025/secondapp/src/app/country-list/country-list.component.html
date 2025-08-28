@@ -1,0 +1,13 @@
+<p>country-list works!</p>
+
+<h3>Country Dropdown Example</h3>
+
+<select>
+  @for (country of loadedCountries; track $index) {
+    <option>{{ country }}</option>
+  }
+</select>
+
+<br><br>
+
+<button (click)="loadCountries()">Load</button>
