@@ -1,4 +1,4 @@
-<h2>Fruit List</h2>
+<!-- <h2>Fruit List</h2>
 <div class="d-flex flex-wrap">
   <app-ex5fruit
     *ngFor="let f of fruits"
@@ -6,4 +6,15 @@
     [description]="f.description"
     [image]="f.image">
   </app-ex5fruit>
+</div> -->
+
+
+<!-- <div class="d-flex flex-wrap justify-content-center">
+  <app-ex5fruit *ngFor="let f of fruits" [fruit]="f"></app-ex5fruit>
+</div> -->
+
+<div style="display:flex; flex-wrap:wrap;">
+  @for (fruit of fruits; track fruit.name) {
+    <app-ex5fruit [fruit]="fruit" (removeClick)="removeFruit($event)"></app-ex5fruit>
+  }
 </div>

@@ -1,51 +1,54 @@
 import { Component } from '@angular/core';
 import { Ex1DisplayListComponent } from '../ex1-display-list/ex1-display-list.component';
 import { Ex5fruitComponent } from '../ex5fruit/ex5fruit.component';
+import { CommonModule } from '@angular/common';
+import { IFruit } from '../ex5fruit/ifruit';
+
 
 @Component({
   selector: 'app-ex1-home',
-  imports: [Ex5fruitComponent],
+  imports: [CommonModule,Ex5fruitComponent],
   templateUrl: './ex1-home.component.html',
   styleUrl: './ex1-home.component.css'
 })
 export class Ex1HomeComponent {
-fruits = [
-    { 
-      name: 'Apple', 
-      image: 'https://upload.wikimedia.org/wikipedia/commons/1/15/Red_Apple.jpg', 
-      description: 'Red and juicy apple full of vitamins.' 
+    fruits: IFruit[] = [
+    {
+      name: 'Apple',
+      description: 'Apples are sweet and crunchy.',
+      image: 'https://tse2.mm.bing.net/th/id/OIP.M5ul8Wn8FsDEB_NbK5agUwHaIZ?pid=Api&P=0&h=220'
     },
-    { 
-      name: 'Banana', 
-      image: 'https://upload.wikimedia.org/wikipedia/commons/8/8a/Banana-Single.jpg', 
-      description: 'Sweet and soft banana, rich in potassium.' 
+    {
+      name: 'Banana',
+      description: 'Bananas are rich in potassium.',
+      image: 'https://tse2.mm.bing.net/th/id/OIP.O8lKDwWSZP_Cfm8eeyw3wAHaFu?pid=Api&P=0&h=220'
     },
-    { 
-      name: 'Mango', 
-      image: 'https://upload.wikimedia.org/wikipedia/commons/9/90/Hapus_Mango.jpg', 
-      description: 'Delicious mango, the king of fruits.' 
-    },
-    { 
-      name: 'Orange', 
-      image: 'https://upload.wikimedia.org/wikipedia/commons/c/c4/Orange-Fruit-Pieces.jpg', 
-      description: 'Fresh orange full of vitamin C.' 
-    },
-    { 
-      name: 'Pineapple', 
-      image: 'https://upload.wikimedia.org/wikipedia/commons/c/cb/Pineapple_and_cross_section.jpg', 
-      description: 'Tropical pineapple with tangy flavor.' 
-    },
-    { 
-      name: 'Strawberry', 
-      image: 'https://upload.wikimedia.org/wikipedia/commons/2/29/PerfectStrawberry.jpg', 
-      description: 'Sweet and juicy strawberries.' 
-    },
-    
-    { 
-      name: 'Kiwi', 
-      image: 'https://upload.wikimedia.org/wikipedia/commons/d/d3/Kiwi_aka.jpg', 
-      description: 'Tangy kiwi fruit with vitamin C.' 
-    }
-  ];
 
+    {
+      name: 'Orange',
+      description: 'Oranges are juicy and full of Vitamin C.',
+      image: 'https://tse4.mm.bing.net/th/id/OIP.IczbWs4l14PlArRhA9Nu8gHaJ6?pid=Api&P=0&h=220'
+    },
+    {
+  name: 'Mango',
+  description: 'Mangoes are called the king of fruits, sweet and tropical.',
+  image: 'https://upload.wikimedia.org/wikipedia/commons/9/90/Hapus_Mango.jpg'
+},
+{
+  name: 'Strawberry',
+  description: 'Strawberries are red, juicy, and perfect for desserts.',
+  image: 'https://upload.wikimedia.org/wikipedia/commons/2/29/PerfectStrawberry.jpg'
+},
+{
+  name: 'Pineapple',
+  description: 'Pineapples are tangy, tropical, and refreshing.',
+  image: 'https://upload.wikimedia.org/wikipedia/commons/c/cb/Pineapple_and_cross_section.jpg'
+}
+    
+  ];
+
+  removeFruit(fruitName: string) {
+    console.log("Parent removing - " + fruitName);
+    this.fruits = this.fruits.filter(f => f.name !== fruitName);
+  }
 }
