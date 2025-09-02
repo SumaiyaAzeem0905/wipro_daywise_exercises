@@ -1,0 +1,5 @@
+<h2>My Orders</h2>
+<table class="w-full">
+  <tr><th>Id</th><th>Amount</th><th>Status</th><th>Created</th></tr>
+  <tr *ngFor="let o of orders"><td>{{ o.id }}</td><td>₹{{ o.amount }}</td><td>{{ o.status }}</td><td>{{ o.createdAt | date:'short' }}</td></tr>
+</table>

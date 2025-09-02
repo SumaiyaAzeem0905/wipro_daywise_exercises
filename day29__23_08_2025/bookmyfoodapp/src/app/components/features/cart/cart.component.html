@@ -1,0 +1,24 @@
+<div class="container my-4">
+  <h4 class="mb-3">Your Cart</h4>
+
+  <div *ngIf="!cart.items.length" class="alert alert-info">Cart is empty.</div>
+
+  <div class="list-group mb-3" *ngIf="cart.items.length">
+    <div class="list-group-item d-flex align-items-center" *ngFor="let i of cart.items">
+      <img [src]="i.food.imageUrl" class="rounded me-3" width="70" height="50" style="object-fit:cover" />
+      <div class="flex-grow-1">
+        <div class="fw-semibold">{{ i.food.name }}</div>
+        <div class="text-muted small">Qty: {{ i.quantity }}</div>
+      </div>
+      <div class="me-3">₹ {{ i.food.price * i.quantity }}</div>
+      <button class="btn btn-sm btn-outline-danger" (click)="remove(i.food.id)">
+        <i class="bi bi-trash"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-between align-items-center">
+    <h5>Total: ₹ {{ cart.totalPrice }}</h5>
+    <a class="btn btn-success" [class.disabled]="!cart.items.length" routerLink="/checkout">Proceed to Checkout</a>
+  </div>
+</div>

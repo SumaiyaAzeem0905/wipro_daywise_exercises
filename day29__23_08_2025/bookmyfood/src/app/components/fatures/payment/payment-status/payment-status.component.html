@@ -1,0 +1,2 @@
+<h2>Payment</h2>
+<div *ngIf="info as p">Order {{ p.orderId }} → <strong>{{ p.status }}</strong> <span *ngIf="p.reference">(ref: {{ p.reference }})</span></div>

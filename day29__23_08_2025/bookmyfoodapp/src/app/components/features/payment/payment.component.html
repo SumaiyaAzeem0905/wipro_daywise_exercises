@@ -1,0 +1,23 @@
+<div class="container my-5" style="max-width:500px">
+  <div class="card card-shadow p-4">
+    <h5 class="mb-3">Payment</h5>
+    <p class="text-muted">This is a demo payment screen. Click Pay to confirm.</p>
+
+    <div class="mb-3">
+      <label class="form-label">Card Number</label>
+      <input class="form-control" placeholder="4111 1111 1111 1111">
+    </div>
+    <div class="row">
+      <div class="col">
+        <label class="form-label">Expiry</label>
+        <input class="form-control" placeholder="MM/YY">
+      </div>
+      <div class="col">
+        <label class="form-label">CVV</label>
+        <input class="form-control" placeholder="***" type="password">
+      </div>
+    </div>
+
+    <button class="btn btn-success mt-3 w-100" (click)="pay()">Pay ₹</button>
+  </div>
+</div>

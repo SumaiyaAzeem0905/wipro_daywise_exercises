@@ -1,0 +1,7 @@
+<h2>Login</h2>
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="grid gap-2 max-w-sm">
+  <input type="text" placeholder="Username" formControlName="username" />
+  <input type="password" placeholder="Password" formControlName="password" />
+  <button [disabled]="form.invalid">Login</button>
+</form>
+<p class="mt-2">No account? <a routerLink="/register">Register</a></p>

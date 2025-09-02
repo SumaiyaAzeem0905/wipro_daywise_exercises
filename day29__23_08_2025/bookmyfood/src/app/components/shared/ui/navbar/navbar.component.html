@@ -1,0 +1,23 @@
+<nav class="p-4 shadow-md bg-gradient-to-r from-red-500 to-orange-400 text-white flex items-center">
+  <a routerLink="/" class="text-2xl font-extrabold tracking-wide">🍴 BookMyFood</a>
+  <span class="flex-grow"></span>
+
+  <div class="flex gap-6 items-center">
+    <a routerLink="/foods" class="hover:text-yellow-200 transition">Foods</a>
+    <a routerLink="/cart" class="hover:text-yellow-200 transition">Cart 🛒</a>
+
+    <ng-container *ngIf="auth.isLoggedIn(); else guest">
+      <a routerLink="/orders" class="hover:text-yellow-200 transition">My Orders</a>
+      <button class="ml-4 px-4 py-2 bg-white text-red-500 font-semibold rounded-lg shadow-md hover:bg-yellow-100 transition">
+        Logout
+      </button>
+    </ng-container>
+
+    <ng-template #guest>
+      <a routerLink="/login" class="hover:text-yellow-200 transition">Login</a>
+      <a routerLink="/register" class="px-4 py-2 bg-yellow-400 text-red-800 font-semibold rounded-lg shadow-md hover:bg-yellow-300 transition">
+        Register
+      </a>
+    </ng-template>
+  </div>
+</nav>

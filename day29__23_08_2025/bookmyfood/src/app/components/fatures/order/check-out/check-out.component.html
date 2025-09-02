@@ -1,0 +1,5 @@
+<h2>Checkout</h2>
+<form [formGroup]="form" (ngSubmit)="place()" class="grid gap-2 max-w-lg">
+  <textarea placeholder="Delivery address" formControlName="address"></textarea>
+  <button [disabled]="form.invalid || !hasItems">Place Order</button>
+</form>

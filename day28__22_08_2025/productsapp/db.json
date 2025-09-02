@@ -17,6 +17,12 @@
       "name": "AC",
       "category": "Electronics",
       "price": 50000
+    },
+    {
+      "id": "37b1",
+      "name": "sling bag",
+      "category": "bags",
+      "price": 1000
     }
   ]
 }

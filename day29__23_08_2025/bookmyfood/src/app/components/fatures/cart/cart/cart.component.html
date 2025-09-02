@@ -1,0 +1,12 @@
+<h2>Cart</h2>
+<table class="w-full">
+  <tr><th>Item</th><th>Qty</th><th>Price</th><th></th></tr>
+  <tr *ngFor="let c of cart.items()">
+    <td>{{ c.item.name }}</td>
+    <td>{{ c.qty }}</td>
+    <td>₹{{ c.item.price * c.qty }}</td>
+    <td><button (click)="remove(c.item.id)">x</button></td>
+  </tr>
+</table>
+<div class="mt-3">Total: <strong>₹{{ cart.total() }}</strong></div>
+<a routerLink="/checkout" *ngIf="cart.items().length" class="inline-block mt-2">Proceed to Checkout</a>

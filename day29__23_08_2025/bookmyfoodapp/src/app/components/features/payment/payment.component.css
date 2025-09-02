@@ -1,0 +1,10 @@
+.payment-container {
+  padding: 20px;
+  text-align: center;
+}
+button {
+  background: #283618;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+}

@@ -1,0 +1,7 @@
+<h2>Register</h2>
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="grid gap-2 max-w-sm">
+  <input type="text" placeholder="Username" formControlName="username" />
+  <input type="email" placeholder="Email" formControlName="email" />
+  <input type="password" placeholder="Password" formControlName="password" />
+  <button [disabled]="form.invalid">Create account</button>
+</form>`
